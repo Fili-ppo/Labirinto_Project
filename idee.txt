@@ -1,0 +1,24 @@
+Tesori:
+-Casse con:
+--Gemmine = FRESCA
+--Equipaggiaments
+
+Persone:
+-Aiutanti: ti seguono e aiutano (+ statistiche/ aiuti)
+-Nemici
+-Indovinellatori (coloro che indovinellano --> professori)
+-Persone che parlano e basta (tanti terroni --> accento simpatico e rubano soldi)
+--1 logorroico
+--medico
+--Coccodrillo ludopatico (ti balli le gemmine)
+--Sir Cloddius il Distraente: Un cavaliere che dimentica costantemente il motivo per cui è in missione e si distrae facilmente da qualsiasi cosa.
+--Barbabrufolo il Mago Maldestro: Un mago che lancia incantesimi con risultati imprevedibili e spesso disastrosi..
+
+Luoghi:
+-Locanda con cibo
+-Mercato --> spendi gemmine (tipo Porkrind’s Emporium - Cuphead)
+
+Multigiocatore:
+-contemporaneo a due finestre o a turni?
+-comandi diversi per p1 e p2
+-thread (sfida a tempo tra i due)

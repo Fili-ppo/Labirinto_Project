@@ -1,0 +1,6 @@
+COME FARE?
+-Una sola finestra, dividerla in due 
+--Aggiungere un divisore a metà schermo
+--La minimappa sarebbe in mezzo e permetterebbe di visualizzare la posizione di entrambi
+--Nei due angoli ci sarebbero le GUI dei due player
+-Due finestre diverse (difficile e scomodo)

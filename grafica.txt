@@ -1,0 +1,32 @@
+PER CODICE:
+-Quando ci si avvicina a qualcosa (i global bounds si toccano) visualizzare il tasto a/enter come pop up per indicare cosa premere
+-Una volta premuto chiamare funzione e animazione rispettiva (es. cassa che si apre e dà contenuto)
+-Quando i global bounds del pg toccano una porta viene chiamata la funzione muovi() del personaggio che cambia la sua pos[2] in maniera corretta
+--muovi() prenderebbe in input due int, (muovi(a,b)) e le porte avrebbero associato un numero così da poterlo mettere in input
+--porta sù muovi(-1, 0)
+--porta giù muovi(1, 0)
+--porta destra muovi(0, 1)
+--porta sinistra muovi(0, -1) pos[0]+=a; pos[1]+=b; 
+--ovviamente svolgendo gli opportuni controlli per far sì che il pg non esca dalla matrice
+
+GRAFICHE DA FARE:
+-NPC VARI (possibilmente 2/3 frame così da renderli più vivi)
+-Grafiche per dialogo? (frame più grande da visualizzare a schermo insieme ai dialoghi)
+--Soprattutto per gli indovinelli
+-Equipaggiamento
+-Spazi diversi (stanze, locanda, mercato, accampamento...)
+-Giocatore:
+--Animazione idle
+--Animazione camminata
+--Animazione attacco (non per forza, si può semplicemente far comparire la spada)
+--Versioni di tutte queste con armatura
+--Più tipi? (paladino, barbaro) ???
+--Danno/morte
+-Menù iniziale
+-Menù vittoria
+-Menù sconfitta
+-Porte
+-Minimappa (in alto a sinistra per vedere dove si è nel labirinto)
+-GUI/Inventario (in alto a destra, per vedere ciò che si ha + vita + gemme)
+-Eventuali menù per comprare dal mercante
+-Cassa
