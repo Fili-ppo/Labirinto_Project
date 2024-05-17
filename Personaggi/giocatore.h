@@ -7,6 +7,7 @@ class Giocatore:public Personaggio{
         int gemmins;
         Equipaggiamento e[3]; //da allargare?
     public:
+        Giocatore();
         //muovi
         //dodge
         //istruzioni da tastiera/controller

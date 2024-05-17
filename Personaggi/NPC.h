@@ -6,5 +6,7 @@ using namespace std;
 class NPC: public Personaggio{
     private:
         string *dialoghi; //
+    public:
+        NPC();
 };
 #endif
