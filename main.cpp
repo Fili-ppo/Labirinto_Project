@@ -3,14 +3,12 @@
 #include "personaggio.h"
 int main(void){
     Personaggio p;
-    Personaggio p2;
-    p2.crea("mario.png");
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Joystick", sf::Style::Fullscreen);
-    p.crea("zelda.png");
-    p2.sprite.setPosition(500, 300);
-    sf::RectangleShape tasto;
-    tasto.setFillColor(sf::Color::Red);
-    tasto.setSize({60.f, 60.f});
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML Joystick");
+    p.crea("Images/personaggioDx.png");
+    sf::Texture t;
+    t.loadFromFile("Images/stanza1.png");
+    sf::Sprite sfondo;
+    sfondo.setTexture(t);
     while (window.isOpen())
     {
         sf::Event event;
@@ -25,13 +23,10 @@ int main(void){
             float y = sf::Joystick::getAxisPosition(0, sf::Joystick::Y);
             p.sprite.move(x * 0.01f, y * 0.01f);
         }
-        window.clear();
+        window.clear(sf::Color::White);
+        window.draw(sfondo);
         window.draw(p.sprite);
-        window.draw(p2.sprite);
-        if(p.sprite.getGlobalBounds().intersects(p2.sprite.getGlobalBounds())){
-            window.draw(tasto);
-        }
         window.display();
     }
     return 0;
-}
+} 

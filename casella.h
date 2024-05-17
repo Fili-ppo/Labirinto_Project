@@ -1,11 +1,11 @@
 #ifndef CASELLA_H
 #define CASELLA_H
-#include "Personaggi/aiutante.h"
-#include "Personaggi/casino.h"
-#include "Personaggi/medico.h"
-#include "Personaggi/quiz.h"
-#include "Personaggi/nemico.h"
-#include "Personaggi/mercante.h"
+#include "aiutante.h"
+#include "casino.h"
+#include "medico.h"
+#include "quiz.h"
+#include "nemico.h"
+#include "mercante.h"
 class Casella{
     private:
         bool su;
