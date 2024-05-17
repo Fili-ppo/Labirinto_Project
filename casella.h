@@ -31,6 +31,7 @@ class Casella{
         Nemico *n;
         Nemico miniboss;
         Mercante me;
+        //Si potrebbe anche fare un solo attributo dinamico che a seconda degli attributi viene castato in maniera diversa
         sf::RectangleShape porta[4];
         
 };
