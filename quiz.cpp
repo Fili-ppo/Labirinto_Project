@@ -34,9 +34,9 @@ void Quiz::indovinello(){
             }else {cout<<"risposta sbagliata!! sara' per la prossima";}
         break;
         case 4:
-            cout<<"Un mattone pesa un chilo più mezzo mattone. Quanti kg pesa un mattone?/nA)1Kg /nB)2Kg /nC)3Kg/n";
+            cout<<"Il signor Rossi ha 4 figlie. Ogni figlia ha un fratello. Quanti figli ha in tutto?/nA)8/nB)4/nC)5/n";
             cin>>risp1;
-            if(risp1=='B'){
+            if(risp1=='C'){
                 cout<<"complimenti, sei un vero genio! ecco a te la ricompensa";
                 //dai ricompensa
             }else {cout<<"risposta sbagliata!! sara' per la prossima";}
