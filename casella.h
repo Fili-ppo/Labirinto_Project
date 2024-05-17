@@ -8,11 +8,12 @@
 #include "mercante.h"
 class Casella{
     private:
+        
+    public:
         bool su;
         bool giu;
         bool destra;
         bool sinistra;
-        bool mobile;
         bool haMercato;
         bool haOspedale;
         bool haCassa;
@@ -20,15 +21,17 @@ class Casella{
         bool haQuiz;
         bool haAiutante;
         bool haCasino;
+        bool haMiniboss;
         int numNemici;
-    public:
         Casella();
         Aiutante a;
         Casino c;
         Medico m;
         Quiz q;
-        Nemico n;
+        Nemico *n;
+        Nemico miniboss;
         Mercante me;
+        sf::RectangleShape porta[4];
         
 };
 #endif

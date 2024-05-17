@@ -4,13 +4,15 @@
 #include "personaggio.h"
 #include "equipaggiamento.h"
 #include "arma.h"
+#include "nemico.h"
 #include <SFML/Graphics.hpp>
+#include <fstream>
 class Gioco{
     private:
         Casella tabellone[7][7];
-        Casella extra;
+        std::ifstream schema;
         
     public:
-        void attacca(Personaggio *p, Arma *a);
+        void attacca(Nemico *n, Arma *a);
 };
 #endif
