@@ -28,7 +28,7 @@ class Casella{
         Casino c;
         Medico m;
         Quiz q;
-        Nemico *n;
+        Nemico n[2];
         Nemico miniboss;
         Mercante me;
         //Si potrebbe anche fare un solo attributo dinamico che a seconda degli attributi viene castato in maniera diversa
