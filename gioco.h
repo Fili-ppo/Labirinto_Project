@@ -11,6 +11,7 @@ class Gioco{
     private:
         Casella tabellone[7][7];
         std::ifstream schema;
+        std::ifstream sfondi;
         
     public:
         void attacca(Nemico *n, Arma *a);
