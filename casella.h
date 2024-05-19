@@ -23,10 +23,11 @@ class Casella{
         bool haAiutante;
         bool haCasino;
         bool haMiniboss;
-        int numNemici;
         Casella();
         NPC *npc;
-        sf::RectangleShape porta[4];
+        sf::Texture textCassa;
+        sf::Sprite cassa;
+        sf::RectangleShape porta[4]; //0 su, 1 giu, 2 destra, 3 sinistra
         sf::Texture sfondo;
         sf::Sprite sfondo2;
         void inizializza();

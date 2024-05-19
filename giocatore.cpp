@@ -19,7 +19,7 @@ void Giocatore::usaPozione(){
 
 }
 void Giocatore::muovi(){
-    if(sf::Joystick::isConnected(0)){
+    /*if(sf::Joystick::isConnected(0)){
         float x = sf::Joystick::getAxisPosition(0, sf::Joystick::PovX); //PovX per DPad, X per joystick
         float y = sf::Joystick::getAxisPosition(0, sf::Joystick::PovY);
         sprite.move(x * 0.001f, -y * 0.001f);
@@ -32,5 +32,17 @@ void Giocatore::muovi(){
         } else if (y < 0) {
             sprite.setTexture(texture[0]);
         }
-    }
+    }*/
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+            sprite.move(0, -0.2); 
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+            sprite.move(0, 0.2);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+            sprite.move(-0.2, 0);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+            sprite.move(0.2, 0);
+        }
 }

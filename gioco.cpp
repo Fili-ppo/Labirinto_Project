@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 Gioco::Gioco(){
     //Creo la finestra e le assegno dimensioni e nome
-    //finestra=new sf::RenderWindow(sf::VideoMode(1000, 1000), "Labirinto");
+    finestra=new sf::RenderWindow(sf::VideoMode(1000, 1000), "Labirinto");
     //Assegno la struttura al labirinto
     schema.open("labirinto.txt");
     for(int i=0; i<7; i++){
@@ -20,7 +20,6 @@ Gioco::Gioco(){
             schema>>tabellone[i][j].haAiutante;
             schema>>tabellone[i][j].haCasino;
             schema>>tabellone[i][j].haMiniboss;
-            schema>>tabellone[i][j].numNemici;
             tabellone[i][j].inizializza();
         }
     }
@@ -42,16 +41,51 @@ void Gioco::attacca(Nemico *n, Arma *a){
         a->faiDanno(n);
     }
 }
-/*void Gioco::partita(){
+void Gioco::partita(){
     while(finestra->isOpen()){ //quando la finestra è aperta il gioco continua
         sf::Event azione;
         while(finestra->pollEvent(azione)){
             if(azione.type==sf::Event::Closed) finestra->close(); //se premo la x, fermo il programma e chiudo la finestra
         }
-        //funz varie
-        display();
+        player.muovi();
+        cambiaStanza();
+        disegna();
+        finestra->display();
     }
-}*/
-void Gioco::display(){
-
+}
+void Gioco::disegna(){
+    finestra->draw(tabellone[player.getI()][player.getJ()].sfondo2);
+    if(tabellone[player.getI()][player.getJ()].haCassa) finestra->draw(tabellone[player.getI()][player.getJ()].cassa);
+    else finestra->draw(tabellone[player.getI()][player.getJ()].npc->sprite);
+    //4 porte
+    if(tabellone[player.getI()][player.getJ()].su) finestra->draw(tabellone[player.getI()][player.getJ()].porta[0]);
+    if(tabellone[player.getI()][player.getJ()].giu) finestra->draw(tabellone[player.getI()][player.getJ()].porta[1]);
+    if(tabellone[player.getI()][player.getJ()].destra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[2]);
+    if(tabellone[player.getI()][player.getJ()].sinistra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[3]);
+    //Player
+    finestra->draw(player.sprite);
+}
+void Gioco::cambiaStanza(){
+    if(timer.getElapsedTime().asSeconds()>2){
+        if(player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].porta[0].getGlobalBounds()) && tabellone[player.getI()][player.getJ()].su==true){
+            player.cambiaStanza(-1, 0);
+            player.sprite.setPosition(500-85, 800);
+            timer.restart();
+        } 
+        if(player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].porta[1].getGlobalBounds()) && tabellone[player.getI()][player.getJ()].giu==true){
+            player.cambiaStanza(1, 0);
+            player.sprite.setPosition(500-85, 100);
+            timer.restart();
+        } 
+        if(player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].porta[2].getGlobalBounds()) && tabellone[player.getI()][player.getJ()].destra==true){
+            player.cambiaStanza(0, 1);
+            player.sprite.setPosition(100, 500-85);
+            timer.restart();
+        } 
+        if(player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].porta[3].getGlobalBounds()) && tabellone[player.getI()][player.getJ()].sinistra==true){
+            player.cambiaStanza(0, -1);
+            player.sprite.setPosition(800, 500-85);
+            timer.restart();
+        } 
+    }
 }
