@@ -10,6 +10,7 @@
 #include <fstream>
 class Gioco{
     private:
+        //sf::RenderWindow *finestra;
         Casella tabellone[7][7];
         std::ifstream schema;
         std::ifstream sfondi;
@@ -17,6 +18,8 @@ class Gioco{
     public:
         Gioco();
         void attacca(Nemico *n, Arma *a);
+        void display();
+        //void partita();
         Giocatore player;
 };
 #endif

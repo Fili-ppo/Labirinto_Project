@@ -8,8 +8,8 @@ Giocatore::Giocatore(){
     texture[2].loadFromFile("Images\\personaggioDx.png");
     texture[3].loadFromFile("Images\\personaggioSx.png");
     sprite.setTexture(texture[0]);
-    sprite.setPosition(500-170, 500-170);
     sprite.setScale(0.5,0.5);
+    sprite.setPosition(500-85, 500-85);
 }
 void Giocatore::cambiaStanza(int i, int j){
     pos[0]+=i;

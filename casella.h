@@ -1,5 +1,6 @@
 #ifndef CASELLA_H
 #define CASELLA_H
+#include "NPC.h"
 #include "aiutante.h"
 #include "casino.h"
 #include "medico.h"
@@ -24,17 +25,11 @@ class Casella{
         bool haMiniboss;
         int numNemici;
         Casella();
-        Aiutante a;
-        Casino c;
-        Medico m;
-        Quiz q;
-        Nemico n[2];
-        Nemico miniboss;
-        Mercante me;
-        //Si potrebbe anche fare un solo attributo dinamico che a seconda degli attributi viene castato in maniera diversa
+        NPC *npc;
         sf::RectangleShape porta[4];
         sf::Texture sfondo;
         sf::Sprite sfondo2;
+        void inizializza();
         
 };
 #endif
