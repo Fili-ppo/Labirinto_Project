@@ -5,7 +5,7 @@ class Quiz: public NPC{
     private:
 
     public:
-        Quiz():NPC(){};
+        Quiz():NPC(){texture->loadFromFile("Images\\quiz.png"); sprite.setTexture(*texture);};
         //void indovinello();
 };
 #endif

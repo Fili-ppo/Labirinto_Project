@@ -5,7 +5,7 @@ class Nemico: public NPC{
     private:
         int danno;
     public:
-        Nemico():NPC(){danno=10;}; //costruttore per creare i nemici normali
-        Nemico(int d):NPC(){danno=d;}; //costruttore per creare i miniboss
+        Nemico():NPC(){danno=10;texture->loadFromFile("Images\\nemico.png");sprite.setTexture(*texture);}; //costruttore per creare i nemici normali
+        Nemico(int d, string s):NPC(){danno=d;texture->loadFromFile(s);sprite.setTexture(*texture);}; //costruttore per creare i miniboss
 };
 #endif

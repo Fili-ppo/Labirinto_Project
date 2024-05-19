@@ -5,7 +5,7 @@ class Casino: public NPC{
     private:
 
     public:
-        Casino():NPC(){};
+        Casino():NPC(){texture->loadFromFile("Images\\casino.png"); sprite.setTexture(*texture);};
         void scommetti();
         int scommessa=rand()%101;
 };

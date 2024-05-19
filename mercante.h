@@ -5,6 +5,6 @@ class Mercante: public NPC{
     private:
 
     public:
-        Mercante():NPC(){};
+        Mercante():NPC(){texture->loadFromFile("Images\\mercante.png"); sprite.setTexture(*texture);};
 };
 #endif

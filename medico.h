@@ -5,7 +5,7 @@ class Medico: public NPC{
     private:
 
     public:
-        Medico():NPC(){};
+        Medico():NPC(){texture->loadFromFile("Images\\medico.png"); sprite.setTexture(*texture);};
         void cura();
 };
 #endif

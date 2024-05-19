@@ -6,6 +6,6 @@ class Aiutante:public NPC{
 
 
     public:
-        Aiutante():NPC(){};
+        Aiutante():NPC(){texture->loadFromFile("Images\\aiutante.png"); sprite.setTexture(*texture);};
 };
 #endif
