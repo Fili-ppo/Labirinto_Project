@@ -3,6 +3,7 @@
 #include "NPC.h"
 #include "aiutante.h"
 #include "casino.h"
+#include "cassa.h"
 #include "medico.h"
 #include "quiz.h"
 #include "nemico.h"

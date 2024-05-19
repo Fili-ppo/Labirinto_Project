@@ -5,7 +5,7 @@ Gioco::Gioco(){
     //Creo la finestra e le assegno dimensioni e nome
     finestra=new sf::RenderWindow(sf::VideoMode(1000, 1000), "Labirinto");
     //Assegno la struttura al labirinto
-    schema.open("labirinto.txt");
+    schema.open("Documentazione\\labirinto.txt");
     for(int i=0; i<7; i++){
         for(int j=0; j<7; j++){
             schema>>tabellone[i][j].su;
@@ -25,7 +25,7 @@ Gioco::Gioco(){
     }
     schema.close();
     //Assegno gli sprite ad ogni stanza
-    sfondi.open("sfondi.txt");
+    sfondi.open("Documentazione\\sfondi.txt");
     for(int i=0; i<7; i++){
         for(int j=0; j<7; j++){
             string s;
@@ -48,6 +48,7 @@ void Gioco::partita(){
             if(azione.type==sf::Event::Closed) finestra->close(); //se premo la x, fermo il programma e chiudo la finestra
         }
         player.muovi();
+        player.attacca();
         cambiaStanza();
         disegna();
         finestra->display();
@@ -63,6 +64,8 @@ void Gioco::disegna(){
     if(tabellone[player.getI()][player.getJ()].destra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[2]);
     if(tabellone[player.getI()][player.getJ()].sinistra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[3]);
     //Player
+    finestra->draw(tabellone[player.getI()][player.getJ()].npc->sprite);
+    if(player.staAttaccando) finestra->draw(player.spada.sprite);
     finestra->draw(player.sprite);
 }
 void Gioco::cambiaStanza(){

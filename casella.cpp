@@ -22,9 +22,10 @@ Casella::Casella(){
 void Casella::inizializza(){ //controlla gli attributi della casella e a seconda di quelli decide che tipo di npc è presente in questa casella
     if(haAiutante) npc=new Aiutante();
     else if(haCasino) npc=new Casino();
+    else if(haCassa) npc=new Cassa();
     else if(haMercato) npc=new Mercante();
     else if(haMiniboss) npc=new Nemico(20, "Images\\miniboss.png");
-    else if(haNemici) npc=new Nemico[2];
+    else if(haNemici) npc=new Nemico(10, "Images\\nemico.png");
     else if(haOspedale) npc=new Medico();
     else if(haQuiz) npc=new Quiz();
 }
