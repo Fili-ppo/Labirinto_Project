@@ -16,6 +16,7 @@ class Giocatore:public Personaggio{
         int getI(){return pos[0];};
         int getJ(){return pos[1];};
         void usaPozione();
+        void muovi();
         //muovi
         //dodge
         //istruzioni da tastiera/controller

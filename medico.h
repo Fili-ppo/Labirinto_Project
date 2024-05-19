@@ -5,7 +5,7 @@ class Medico: public NPC{
     private:
 
     public:
-        Medico();
+        Medico():NPC(){};
         void cura();
 };
 #endif

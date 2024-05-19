@@ -5,7 +5,7 @@ class Quiz: public NPC{
     private:
 
     public:
-        Quiz();
-        void indovinello();
+        Quiz():NPC(){};
+        //void indovinello();
 };
 #endif

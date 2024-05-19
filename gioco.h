@@ -5,6 +5,7 @@
 #include "equipaggiamento.h"
 #include "arma.h"
 #include "nemico.h"
+#include "giocatore.h"
 #include <SFML/Graphics.hpp>
 #include <fstream>
 class Gioco{
@@ -14,6 +15,8 @@ class Gioco{
         std::ifstream sfondi;
         
     public:
+        Gioco();
         void attacca(Nemico *n, Arma *a);
+        Giocatore player;
 };
 #endif

@@ -6,6 +6,6 @@ class Aiutante:public NPC{
 
 
     public:
-        Aiutante();
+        Aiutante():NPC(){};
 };
 #endif

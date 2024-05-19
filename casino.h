@@ -5,7 +5,7 @@ class Casino: public NPC{
     private:
 
     public:
-        Casino();
+        Casino():NPC(){};
         void scommetti();
         int scommessa=rand()%101;
 };

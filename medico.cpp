@@ -2,9 +2,9 @@
 #include "giocatore.h"
 #include <iostream>
 using namespace std;
-Medico::Medico(){
+//Medico::Medico(){
     
-}
+//}
 void Medico:: cura(){
     string risp;
     cout<<"hey ciao, hai bisogno di cure?('si'/'no')";

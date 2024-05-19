@@ -2,9 +2,9 @@
 #include "giocatore.h"
 #include <iostream>
 using namespace std;
-Casino::Casino(){
+//Casino::Casino(){
 
-}
+//}
 void Casino::scommetti(){
     string risp;
     cout<<"hey ciao caro esploratore, vuoi aumentare il numero delle tue gemme ;) ?(si/no)";

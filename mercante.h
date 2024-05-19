@@ -5,6 +5,6 @@ class Mercante: public NPC{
     private:
 
     public:
-        Mercante();
+        Mercante():NPC(){};
 };
 #endif

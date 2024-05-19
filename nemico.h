@@ -6,6 +6,6 @@ class Nemico: public NPC{
     private:
         Equipaggiamento arma;
     public:
-        Nemico();
+        Nemico():NPC(){};
 };
 #endif

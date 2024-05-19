@@ -1,9 +1,9 @@
 #include "quiz.h"
 using namespace std;
-Quiz::Quiz(){
+//Quiz::Quiz(){
 
-}
-void Quiz::indovinello(){
+//}
+/*void Quiz::indovinello(){
     string risp;
     string risp1;
     cout<<"ciao avventuriero, per avere delle ricopmpense scegli un numero da 1 a 4 e rispondi al seguente indovinello/n";
@@ -43,4 +43,4 @@ void Quiz::indovinello(){
         break;
 
     }
-}
+}*/

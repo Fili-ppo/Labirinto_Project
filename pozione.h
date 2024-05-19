@@ -6,7 +6,7 @@ class Pozione: public Equipaggiamento{
     private:
         //int tipo; //effetto, 1) cura 2) +attacco ...
     public:
-        Pozione(){};
+        Pozione();
         sf::Texture texture;
         sf::Sprite sprite;
         virtual void utilizza(){};
