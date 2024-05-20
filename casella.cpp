@@ -1,5 +1,6 @@
 #include "casella.h"
 Casella::Casella(){
+    haiVinto=false;
     for(int i=0; i<4; i++){
         //porta[i].setFillColor(sf::Color::Red);
         porta[i].setSize({6.f, 1.f});
@@ -24,8 +25,12 @@ void Casella::inizializza(){ //controlla gli attributi della casella e a seconda
     else if(haCasino) npc=new Casino();
     else if(haCassa) npc=new Cassa();
     else if(haMercato) npc=new Mercante();
-    else if(haMiniboss) npc=new Nemico(20, "Images\\miniboss.png");
-    else if(haNemici) npc=new Nemico(10, "Images\\nemico.png");
+    else if(haMiniboss) npc=new Nemico(10, 40, "Images\\miniboss.png");
+    else if(haNemici) npc=new Nemico(5,20, "Images\\nemico.png");
     else if(haOspedale) npc=new Medico();
     else if(haQuiz) npc=new Quiz();
+}
+void Casella::update(){
+    npc->controlloVita();
+    if(npc->vivo==false) haiVinto=true;
 }

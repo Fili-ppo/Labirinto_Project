@@ -8,5 +8,6 @@ class NPC: public Personaggio{
         string *dialoghi; //
     public:
         NPC();
+        void controlloVita();
 };
 #endif

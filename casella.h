@@ -24,6 +24,7 @@ class Casella{
         bool haAiutante;
         bool haCasino;
         bool haMiniboss;
+        bool haiVinto;
         Casella();
         NPC *npc;
         sf::Texture textCassa;
@@ -32,6 +33,7 @@ class Casella{
         sf::Texture sfondo;
         sf::Sprite sfondo2;
         void inizializza();
+        void update();
         
 };
 #endif

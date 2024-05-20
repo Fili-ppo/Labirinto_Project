@@ -12,6 +12,7 @@ Giocatore::Giocatore(){
     sprite.setPosition(500-85, 500-85);
     spada.texture.loadFromFile("Images\\spada.png");
     spada.sprite.setTexture(spada.texture);
+    spada.setDanno(10);
     spada.sprite.setScale(0.7,0.7);
     staAttaccando=false;
 }

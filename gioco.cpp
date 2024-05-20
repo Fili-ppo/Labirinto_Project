@@ -36,9 +36,12 @@ Gioco::Gioco(){
     }
     sfondi.close();
 }
-void Gioco::attacca(Nemico *n, Arma *a){
-    if(a->sprite.getGlobalBounds().intersects(n->sprite.getGlobalBounds())){
-        a->faiDanno(n);
+void Gioco::attacca(){
+    if(player.spada.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds())){
+        if(tabellone[player.getI()][player.getJ()].npc->invincibile.getElapsedTime().asSeconds()>3){
+            player.spada.faiDanno(tabellone[player.getI()][player.getJ()].npc);
+            tabellone[player.getI()][player.getJ()].npc->invincibile.restart();
+        }
     }
 }
 void Gioco::partita(){
@@ -49,6 +52,8 @@ void Gioco::partita(){
         }
         player.muovi();
         player.attacca();
+        if(tabellone[player.getI()][player.getJ()].haNemici || tabellone[player.getI()][player.getJ()].haMiniboss) attacca();
+        tabellone[player.getI()][player.getJ()].update();
         cambiaStanza();
         disegna();
         finestra->display();
@@ -64,7 +69,9 @@ void Gioco::disegna(){
     if(tabellone[player.getI()][player.getJ()].destra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[2]);
     if(tabellone[player.getI()][player.getJ()].sinistra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[3]);
     //Player
-    finestra->draw(tabellone[player.getI()][player.getJ()].npc->sprite);
+    if(tabellone[player.getI()][player.getJ()].haiVinto==false){
+        finestra->draw(tabellone[player.getI()][player.getJ()].npc->sprite);
+    }
     if(player.staAttaccando) finestra->draw(player.spada.sprite);
     finestra->draw(player.sprite);
 }
