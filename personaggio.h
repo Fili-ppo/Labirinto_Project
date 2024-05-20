@@ -4,16 +4,17 @@
 #include "equipaggiamento.h"
 #include <SFML/Graphics.hpp>
 class Personaggio{
-    private:
+    protected:
         std::string nome;
         int vita;
-        sf::Clock invincibile; //aggiunge i frame di invincibilità, senza i personaggi verrebbero one shottati (da spostare solo su nemico e eroe)
     public:
         Personaggio();
         sf::Texture *texture; //apparenza del pg
         sf::Sprite sprite; //pg vero e proprio
-        void prendiDanno(int danno);
-        int getVita();
+        sf::Clock invincibile; //aggiunge i frame di invincibilità, senza i personaggi verrebbero one shottati (da spostare solo su nemico e eroe)
+        int getVita(){return vita;};
+        void setVita(int v){vita=v;};
+        bool vivo;
 
 };
 

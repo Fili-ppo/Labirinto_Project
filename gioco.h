@@ -18,7 +18,7 @@ class Gioco{
         
     public:
         Gioco();
-        void attacca(Nemico *n, Arma *a);
+        void attacca();
         void disegna();
         void partita();
         void cambiaStanza();

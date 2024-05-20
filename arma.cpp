@@ -2,6 +2,6 @@
 Arma::Arma(){
 
 }
-void Arma::faiDanno(Nemico *n){
-    n->prendiDanno(danno);
+void Arma::faiDanno(NPC *n){
+        n->setVita(n->getVita()-danno);
 }
