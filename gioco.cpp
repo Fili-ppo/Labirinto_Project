@@ -1,6 +1,7 @@
 #include "gioco.h"
 #include <fstream>
 #include <SFML/Graphics.hpp>
+#include <iostream>
 Gioco::Gioco(){
     //Creo la finestra e le assegno dimensioni e nome
     finestra=new sf::RenderWindow(sf::VideoMode(1000, 1000), "Labirinto");
@@ -21,7 +22,9 @@ Gioco::Gioco(){
             schema>>tabellone[i][j].haCasino;
             schema>>tabellone[i][j].haMiniboss;
             tabellone[i][j].inizializza();
+            std::cout<<tabellone[i][j].npc->getVita()<<" ";
         }
+        std::cout<<endl;
     }
     schema.close();
     //Assegno gli sprite ad ogni stanza
@@ -36,11 +39,14 @@ Gioco::Gioco(){
     }
     sfondi.close();
 }
-void Gioco::attacca(){
-    if(player.spada.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds())){
+void Gioco::attacca(){ //ok
+    if(tabellone[player.getI()][player.getJ()].haNemici || tabellone[player.getI()][player.getJ()].haMiniboss){
         if(tabellone[player.getI()][player.getJ()].npc->invincibile.getElapsedTime().asSeconds()>3){
-            player.spada.faiDanno(tabellone[player.getI()][player.getJ()].npc);
-            tabellone[player.getI()][player.getJ()].npc->invincibile.restart();
+            if(player.spada.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds()) && player.staAttaccando){
+                player.spada.faiDanno(tabellone[player.getI()][player.getJ()].npc);
+                std::cout<<tabellone[player.getI()][player.getJ()].npc->getVita()<<" "<<endl;
+                tabellone[player.getI()][player.getJ()].npc->invincibile.restart();
+            }
         }
     }
 }
@@ -52,17 +58,15 @@ void Gioco::partita(){
         }
         player.muovi();
         player.attacca();
-        if(tabellone[player.getI()][player.getJ()].haNemici || tabellone[player.getI()][player.getJ()].haMiniboss) attacca();
+        attacca();
         tabellone[player.getI()][player.getJ()].update();
         cambiaStanza();
         disegna();
         finestra->display();
     }
 }
-void Gioco::disegna(){
+void Gioco::disegna(){ //ok
     finestra->draw(tabellone[player.getI()][player.getJ()].sfondo2);
-    if(tabellone[player.getI()][player.getJ()].haCassa) finestra->draw(tabellone[player.getI()][player.getJ()].cassa);
-    else finestra->draw(tabellone[player.getI()][player.getJ()].npc->sprite);
     //4 porte
     if(tabellone[player.getI()][player.getJ()].su) finestra->draw(tabellone[player.getI()][player.getJ()].porta[0]);
     if(tabellone[player.getI()][player.getJ()].giu) finestra->draw(tabellone[player.getI()][player.getJ()].porta[1]);
