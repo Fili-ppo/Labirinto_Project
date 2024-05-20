@@ -6,12 +6,9 @@
 #include <SFML/Graphics.hpp>
 class Menu{
     private:
-        sf::RectangleShape *vita;
-        Personaggio p2;
-        sf::RectangleShape barra;
+        sf::RenderWindow *finestra;
     public:
-        Menu(Personaggio *p);
-        void display(sf::RenderWindow *window);
-        void update(Personaggio *p);
+        Menu();
+        void update();
 };
 #endif

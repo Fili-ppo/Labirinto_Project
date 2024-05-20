@@ -6,6 +6,7 @@ Gioco::Gioco(){
     //Creo la finestra e le assegno dimensioni e nome
     finestra=new sf::RenderWindow(sf::VideoMode(1000, 1000), "Labirinto");
     //Assegno la struttura al labirinto
+    //da mettere switch case per i documenti da considerare
     schema.open("Documentazione\\labirinto.txt");
     for(int i=0; i<7; i++){
         for(int j=0; j<7; j++){
@@ -21,10 +22,9 @@ Gioco::Gioco(){
             schema>>tabellone[i][j].haAiutante;
             schema>>tabellone[i][j].haCasino;
             schema>>tabellone[i][j].haMiniboss;
+            //dare in input un valore che permetta di cambiare la vita dei nemicia seconda della difficoltà
             tabellone[i][j].inizializza();
-            std::cout<<tabellone[i][j].npc->getVita()<<" ";
         }
-        std::cout<<endl;
     }
     schema.close();
     //Assegno gli sprite ad ogni stanza
@@ -48,7 +48,6 @@ void Gioco::attacca(){ //ok
         if(tabellone[player.getI()][player.getJ()].npc->invincibile.getElapsedTime().asSeconds()>3){
             if(player.spada.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds()) && player.staAttaccando){
                 player.spada.faiDanno(tabellone[player.getI()][player.getJ()].npc);
-                std::cout<<tabellone[player.getI()][player.getJ()].npc->getVita()<<" "<<endl;
                 tabellone[player.getI()][player.getJ()].npc->invincibile.restart();
             }
         }

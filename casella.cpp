@@ -29,6 +29,7 @@ void Casella::inizializza(){ //controlla gli attributi della casella e a seconda
     else if(haNemici) npc=new Nemico(5,20, "Images\\nemico.png");
     else if(haOspedale) npc=new Medico();
     else if(haQuiz) npc=new Quiz();
+    else npc=new NPC();
 }
 void Casella::update(){
     npc->controlloVita();
