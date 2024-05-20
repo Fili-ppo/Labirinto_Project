@@ -15,13 +15,15 @@ class Gioco{
         std::ifstream schema;
         std::ifstream sfondi;
         sf::Clock timer;
-        
+        sf::Texture popUp;
+        sf::Sprite PopUp;
     public:
         Gioco();
         void attacca();
         void disegna();
         void partita();
         void cambiaStanza();
+        void checkCollisioni();
         Giocatore player;
 };
 #endif

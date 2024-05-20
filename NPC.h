@@ -9,5 +9,6 @@ class NPC: public Personaggio{
     public:
         NPC();
         void controlloVita();
+        virtual void interazione(){};
 };
 #endif

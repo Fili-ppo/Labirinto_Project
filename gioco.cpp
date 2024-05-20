@@ -38,6 +38,10 @@ Gioco::Gioco(){
         }
     }
     sfondi.close();
+    popUp.loadFromFile("Images\\tastoE.png");
+    PopUp.setTexture(popUp);
+    PopUp.setScale(0.2,0.2);
+    PopUp.setPosition(100, 100);
 }
 void Gioco::attacca(){ //ok
     if(tabellone[player.getI()][player.getJ()].haNemici || tabellone[player.getI()][player.getJ()].haMiniboss){
@@ -62,6 +66,7 @@ void Gioco::partita(){
         tabellone[player.getI()][player.getJ()].update();
         cambiaStanza();
         disegna();
+        checkCollisioni();
         finestra->display();
     }
 }
@@ -101,5 +106,13 @@ void Gioco::cambiaStanza(){
             player.sprite.setPosition(800, 500-85);
             timer.restart();
         } 
+    }
+}
+void Gioco::checkCollisioni(){ //ok
+    if(!tabellone[player.getI()][player.getJ()].haNemici && !tabellone[player.getI()][player.getJ()].haMiniboss){
+        if(player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds())){
+            finestra->draw(PopUp);
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::E)) tabellone[player.getI()][player.getJ()].npc->interazione();
+        }
     }
 }
