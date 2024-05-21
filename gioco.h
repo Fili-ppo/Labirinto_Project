@@ -14,6 +14,7 @@ class Gioco{
         Casella tabellone[7][7];
         std::ifstream schema;
         std::ifstream sfondi;
+        std::ifstream dialoghi;
         sf::Clock timer;
         sf::Texture popUp;
         sf::Sprite PopUp;

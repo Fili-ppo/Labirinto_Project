@@ -2,6 +2,7 @@
 #include <fstream>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <sstream>
 Gioco::Gioco(){
     //Creo la finestra e le assegno dimensioni e nome
     finestra=new sf::RenderWindow(sf::VideoMode(1000, 1000), "Labirinto");
@@ -27,6 +28,46 @@ Gioco::Gioco(){
         }
     }
     schema.close();
+    //Assegno i dialoghi alle classi che ne hanno
+    //Quiz mercato quiz quiz ospedale aiutante
+    string s;
+    stringstream ss;
+    dialoghi.open("Dialoghi\\dialoghi.txt");
+    for(int i=0; i<7; i++){
+        for(int j=0; j<7; j++){
+            if(tabellone[i][j].haMercato || tabellone[i][j].haAiutante || tabellone[i][j].haOspedale || tabellone[i][j].haQuiz){
+                for(int k=0; k<11; k++){
+                    dialoghi>>s;
+                    ss<<s;
+                    ss<<" ";
+                }
+                tabellone[i][j].npc->setDialoghi(ss.str(), 0);
+                ss.str("");
+                for(int k=0; k<7; k++){
+                    dialoghi>>s;
+                    ss<<s;
+                    ss<<" ";
+                }
+                tabellone[i][j].npc->setDialoghi(ss.str(), 1);
+                ss.str("");
+                for(int k=0; k<3; k++){
+                    dialoghi>>s;
+                    ss<<s;
+                    ss<<" ";
+                }
+                tabellone[i][j].npc->setDialoghi(ss.str(), 2);
+                ss.str("");
+                for(int k=0; k<4; k++){
+                    dialoghi>>s;
+                    ss<<s;
+                    ss<<" ";
+                }
+                tabellone[i][j].npc->setDialoghi(ss.str(), 3);
+                ss.str("");
+            }
+        }
+    }
+    dialoghi.close();
     //Assegno gli sprite ad ogni stanza
     sfondi.open("Documentazione\\sfondi.txt");
     for(int i=0; i<7; i++){
