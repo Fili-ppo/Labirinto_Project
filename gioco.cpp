@@ -50,19 +50,26 @@ Gioco::Gioco(){
                 }
                 tabellone[i][j].npc->setDialoghi(ss.str(), 1);
                 ss.str("");
+                for(int k=0; k<2; k++){
+                    dialoghi>>s;
+                    ss<<s;
+                    ss<<" ";
+                    tabellone[i][j].npc->setDialoghi(ss.str(), 2+k);
+                    ss.str("");
+                }
                 for(int k=0; k<3; k++){
                     dialoghi>>s;
                     ss<<s;
                     ss<<" ";
                 }
-                tabellone[i][j].npc->setDialoghi(ss.str(), 2);
+                tabellone[i][j].npc->setDialoghi(ss.str(), 4);
                 ss.str("");
                 for(int k=0; k<4; k++){
                     dialoghi>>s;
                     ss<<s;
                     ss<<" ";
                 }
-                tabellone[i][j].npc->setDialoghi(ss.str(), 3);
+                tabellone[i][j].npc->setDialoghi(ss.str(), 5);
                 ss.str("");
             }
         }
@@ -79,10 +86,6 @@ Gioco::Gioco(){
         }
     }
     sfondi.close();
-    popUp.loadFromFile("Images\\tastoE.png");
-    PopUp.setTexture(popUp);
-    PopUp.setScale(0.2,0.2);
-    PopUp.setPosition(100, 100);
 }
 void Gioco::attacca(){ //ok
     if(tabellone[player.getI()][player.getJ()].haNemici || tabellone[player.getI()][player.getJ()].haMiniboss){
@@ -149,10 +152,20 @@ void Gioco::cambiaStanza(){
     }
 }
 void Gioco::checkCollisioni(){ //ok
-    if(!tabellone[player.getI()][player.getJ()].haNemici && !tabellone[player.getI()][player.getJ()].haMiniboss){
-        if(player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds())){
-            finestra->draw(PopUp);
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::E)) tabellone[player.getI()][player.getJ()].npc->interazione();
+    if(!tabellone[player.getI()][player.getJ()].haNemici && !tabellone[player.getI()][player.getJ()].haMiniboss && !tabellone[player.getI()][player.getJ()].haCassa){
+        if(player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds()) && tabellone[player.getI()][player.getJ()].npc->giaInteragito==false){
+            finestra->draw(tabellone[player.getI()][player.getJ()].npc->boxDialogo);
+            finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[0]);
+            finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[1]);
+            finestra->draw(tabellone[player.getI()][player.getJ()].npc->risposta[0]);
+            finestra->draw(tabellone[player.getI()][player.getJ()].npc->risposta[1]);
+            finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[2]);
+            finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[3]);
+            if(tabellone[player.getI()][player.getJ()].npc->interazione()==2) finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[5]);
+        }
+        else if(tabellone[player.getI()][player.getJ()].npc->giaInteragito && player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds())){
+            finestra->draw(tabellone[player.getI()][player.getJ()].npc->risposta[2]);
+            finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[4]);
         }
     }
 }

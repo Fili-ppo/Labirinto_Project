@@ -5,14 +5,19 @@
 #include <sstream>
 using namespace std;
 class NPC: public Personaggio{
-    private:
-        stringstream dialoghi[4]; 
+    protected:
+        sf::Font font;
+        sf::Texture textureRisposta[3];
+        sf::Texture textureDialogo;
     public:
         NPC();
         void controlloVita();
-        virtual void interazione(){};
-        sf::Font font;
-        sf::Text dialogo;
+        virtual int interazione(){return false;};
+        sf::Text dialogo[6];
+        stringstream dialoghi[6]; 
         void setDialoghi(string s, int n);
+        sf::Sprite risposta[3];
+        sf::Sprite boxDialogo;
+        bool giaInteragito;
 };
 #endif

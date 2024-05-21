@@ -2,6 +2,6 @@
 //Aiutante::Aiutante(){
 
 //}
-void Aiutante::interazione(){
-    
+int Aiutante::interazione(){
+    return false;
 }

@@ -16,8 +16,6 @@ class Gioco{
         std::ifstream sfondi;
         std::ifstream dialoghi;
         sf::Clock timer;
-        sf::Texture popUp;
-        sf::Sprite PopUp;
     public:
         Gioco();
         void attacca();
