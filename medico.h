@@ -6,6 +6,6 @@ class Medico: public NPC{
 
     public:
         Medico():NPC(){texture->loadFromFile("Images\\medico.png"); sprite.setTexture(*texture); sprite.setScale(0.5,0.5); sprite.setPosition(500-85, 500-85);};
-        void cura();
+        int interazione(Personaggio *p);
 };
 #endif

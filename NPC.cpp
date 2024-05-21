@@ -33,7 +33,7 @@ NPC::NPC(){
     dialogo[1].setPosition(290, 800);
     dialogo[2].setPosition(282, 890);
     dialogo[3].setPosition(637, 890);
-    dialogo[4].setPosition(405, 850);
+    dialogo[4].setPosition(385, 850);
     dialogo[5].setPosition(430, 830);
 }
 void NPC::controlloVita(){

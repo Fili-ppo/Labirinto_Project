@@ -12,7 +12,7 @@ class NPC: public Personaggio{
     public:
         NPC();
         void controlloVita();
-        virtual int interazione(){return false;};
+        virtual int interazione(Personaggio *p){return 0;};
         sf::Text dialogo[6];
         stringstream dialoghi[6]; 
         void setDialoghi(string s, int n);

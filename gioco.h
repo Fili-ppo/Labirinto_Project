@@ -16,6 +16,8 @@ class Gioco{
         std::ifstream sfondi;
         std::ifstream dialoghi;
         sf::Clock timer;
+        bool vittoria;
+        sf::RectangleShape portaFinale;
     public:
         Gioco();
         void attacca();
@@ -23,6 +25,7 @@ class Gioco{
         void partita();
         void cambiaStanza();
         void checkCollisioni();
+        void checkVittoria();
         Giocatore player;
 };
 #endif

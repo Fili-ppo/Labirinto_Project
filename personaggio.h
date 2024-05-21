@@ -7,6 +7,7 @@ class Personaggio{
     protected:
         std::string nome;
         int vita;
+        int gemme;
     public:
         Personaggio();
         sf::Texture *texture; //apparenza del pg
@@ -15,6 +16,9 @@ class Personaggio{
         int getVita(){return vita;};
         void setVita(int v){vita=v;};
         bool vivo;
+        void setGemme(int g){gemme=g;};
+        int getgemme(){return gemme;};
+        virtual void aumenta(){};
 
 };
 

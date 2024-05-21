@@ -6,6 +6,6 @@ class Quiz: public NPC{
 
     public:
         Quiz():NPC(){texture->loadFromFile("Images\\quiz.png"); sprite.setTexture(*texture); sprite.setScale(0.5,0.5); sprite.setPosition(500-85, 500-85);};
-        int interazione();
+        int interazione(Personaggio *p);
 };
 #endif

@@ -2,6 +2,7 @@
 Giocatore::Giocatore(){
     pos[0]=6; 
     pos[1]=0;
+    chiavi=0;
     texture=new sf::Texture[4];
     texture[0].loadFromFile("Images\\personaggioFronte.png");
     texture[1].loadFromFile("Images\\personaggioRetro.png");
@@ -69,6 +70,6 @@ void Giocatore::attacca(){
     }
     else staAttaccando=false;
 }
-void Giocatore::cambiaArma(Arma *a){
-    spada=*a;
+void Giocatore::aumenta(){
+    chiavi++;
 }

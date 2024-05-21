@@ -6,10 +6,11 @@
 #include "pozione.h"
 class Giocatore:public Personaggio{
     private:
-        int gemmins;
+        int gemme;
         Pozione *pozione;
         int pos[2]; //i e j della casella in cui si trova
         int direzione;
+        int chiavi;
     public:
         Giocatore();
         Arma spada;
@@ -20,6 +21,9 @@ class Giocatore:public Personaggio{
         void usaPozione();
         void muovi();
         void attacca();
-        void cambiaArma(Arma *a);
+        void setGemme(int g){gemme=g;};
+        int getgemme(){return gemme;};
+        void aumenta();
+        int getChiavi(){return chiavi;};
 };
 #endif

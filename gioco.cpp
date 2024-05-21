@@ -4,6 +4,12 @@
 #include <iostream>
 #include <sstream>
 Gioco::Gioco(){
+    vittoria=false;
+    portaFinale.setFillColor(sf::Color::Blue);
+    portaFinale.setSize({6.f, 60.f});
+    portaFinale.setScale(0.1, 6);
+    portaFinale.setRotation(315);
+    portaFinale.setPosition(600, 150);
     //Creo la finestra e le assegno dimensioni e nome
     finestra=new sf::RenderWindow(sf::VideoMode(1000, 1000), "Labirinto");
     //Assegno la struttura al labirinto
@@ -57,7 +63,7 @@ Gioco::Gioco(){
                     tabellone[i][j].npc->setDialoghi(ss.str(), 2+k);
                     ss.str("");
                 }
-                for(int k=0; k<3; k++){
+                for(int k=0; k<4; k++){
                     dialoghi>>s;
                     ss<<s;
                     ss<<" ";
@@ -98,7 +104,7 @@ void Gioco::attacca(){ //ok
     }
 }
 void Gioco::partita(){
-    while(finestra->isOpen()){ //quando la finestra è aperta il gioco continua
+    while(finestra->isOpen() && vittoria==false){ //quando la finestra è aperta il gioco continua
         sf::Event azione;
         while(finestra->pollEvent(azione)){
             if(azione.type==sf::Event::Closed) finestra->close(); //se premo la x, fermo il programma e chiudo la finestra
@@ -110,6 +116,7 @@ void Gioco::partita(){
         cambiaStanza();
         disegna();
         checkCollisioni();
+        checkVittoria();
         finestra->display();
     }
 }
@@ -125,7 +132,9 @@ void Gioco::disegna(){ //ok
         finestra->draw(tabellone[player.getI()][player.getJ()].npc->sprite);
     }
     if(player.staAttaccando) finestra->draw(player.spada.sprite);
+    if(player.getI()==0 && player.getJ()==6) finestra->draw(portaFinale);
     finestra->draw(player.sprite);
+    
 }
 void Gioco::cambiaStanza(){
     if(timer.getElapsedTime().asSeconds()>2){
@@ -161,11 +170,16 @@ void Gioco::checkCollisioni(){ //ok
             finestra->draw(tabellone[player.getI()][player.getJ()].npc->risposta[1]);
             finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[2]);
             finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[3]);
-            if(tabellone[player.getI()][player.getJ()].npc->interazione()==2) finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[5]);
+            if(tabellone[player.getI()][player.getJ()].npc->interazione(&player)==2) finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[5]);
         }
         else if(tabellone[player.getI()][player.getJ()].npc->giaInteragito && player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds())){
             finestra->draw(tabellone[player.getI()][player.getJ()].npc->risposta[2]);
             finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[4]);
         }
+    }
+}
+void Gioco::checkVittoria(){
+    if(player.getI()==0 && player.getJ()==6){
+        if(player.sprite.getGlobalBounds().intersects(portaFinale.getGlobalBounds()) && player.getChiavi()==4 ) vittoria=true;
     }
 }
