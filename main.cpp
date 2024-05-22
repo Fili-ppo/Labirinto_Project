@@ -8,10 +8,9 @@
 int main(void){
     Menu menu;
     Gioco *gioco;
-    menu.checkSalvataggio("Documentazione\\salvataggio.txt");
-    //int diff=m.selezionaDiff();
     menu.display();
     gioco=new Gioco(menu.getDiff());
-    if(gioco->partita()) cout<<"Ciao";
+    if(gioco->partita()) menu.finale(1);
+    else menu.finale(0);
     return 0;
 } 

@@ -10,20 +10,20 @@ using namespace sf;
 class Menu{
     private:
         RenderWindow *finestra;
+        RenderWindow *finestraFinale;
         int diff;
         bool salvato;
-        ifstream salvataggio;
     public:
         Menu();
         int selezionaDiff();
         int getDiff(){return diff;};
-        void checkSalvataggio(string s);
         void display();
         void update();
-        Texture sfondoT, sconfitta, vittoria, pulsante;
+        void finale(int n);
+        Texture sfondoT, sconfitta, vittoria, pulsante, sfondoFinale;
         Font font;
         Text text[3];
-        Sprite pulsanti[3], sfondo;
+        Sprite pulsanti[3], sfondo, schermataFinale;
         RectangleShape cursore;
 };
 #endif

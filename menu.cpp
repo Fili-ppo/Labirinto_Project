@@ -16,7 +16,7 @@ Menu::Menu(){
         pulsanti[i].setScale(0.6, 0.6);
         pulsanti[i].setPosition(i*433+60,800);
     }
-    cursore.setFillColor(sf::Color::Red);
+    cursore.setFillColor(sf::Color::Transparent);
     cursore.setSize({10.f, 10.f});
 }
 
@@ -29,14 +29,11 @@ void Menu::display(){
         finestra->draw(sfondo);
         update();
         finestra->draw(cursore);
-        if(salvato==false){
-            for(int i=0; i<3; i++){
+        for(int i=0; i<3; i++){
             finestra->draw(pulsanti[i]);
             finestra->draw(text[i]);
-            }
-            diff=selezionaDiff();
         }
-        else diff=4;
+        diff=selezionaDiff();
         if(diff!=0) finestra->close();
         finestra->display();
     }
@@ -53,16 +50,20 @@ int Menu::selezionaDiff(){
     }
     else return 0;
 }
-void Menu::checkSalvataggio(string s){
-    salvataggio.open(s);
-    int i;
-    salvataggio>>i;
-    if(i==1){
-        salvato=true;
-    } else if(i==0){
-        salvato=false;
-    }
-}
 void Menu::update(){
     cursore.setPosition(Mouse::getPosition(*finestra).x, Mouse::getPosition(*finestra).y);
+}
+void Menu::finale(int n){
+    finestraFinale=new sf::RenderWindow(sf::VideoMode(1300,1000), "Schermata finale");
+    if(n==0) sfondoFinale.loadFromFile("Images\\sconfitta.png");
+    else if(n==1) sfondoFinale.loadFromFile("Images\\vittoria.png");
+    schermataFinale.setTexture(sfondoFinale);
+    while(finestraFinale->isOpen()){ //quando la finestra è aperta il gioco continua
+        sf::Event azione;
+        while(finestraFinale->pollEvent(azione)){
+            if(azione.type==sf::Event::Closed) finestraFinale->close(); //se premo la x, fermo il programma e chiudo la finestra
+        }
+        finestraFinale->draw(schermataFinale);
+        finestraFinale->display();
+    }
 }

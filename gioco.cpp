@@ -5,7 +5,7 @@
 #include <sstream>
 Gioco::Gioco(int diff){
     vittoria=false;
-    portaFinale.setFillColor(sf::Color::Blue);
+    portaFinale.setFillColor(sf::Color::Transparent);
     portaFinale.setSize({6.f, 60.f});
     portaFinale.setScale(0.1, 6);
     portaFinale.setRotation(315);
@@ -24,9 +24,6 @@ Gioco::Gioco(int diff){
         case 3:
             schema.open("Documentazione\\labirintoHard.txt");
             break;
-        /*case 1:
-            schema.open("Documentazione\\labirintoHard.txt");
-            break;*/
     }
     for(int i=0; i<7; i++){
         for(int j=0; j<7; j++){
