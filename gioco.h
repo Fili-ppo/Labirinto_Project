@@ -6,6 +6,7 @@
 #include "arma.h"
 #include "nemico.h"
 #include "giocatore.h"
+#include "grafica.h"
 #include <SFML/Graphics.hpp>
 #include <fstream>
 using namespace std;
@@ -20,6 +21,7 @@ class Gioco{
         Clock timer;
         RectangleShape portaFinale;
         bool vittoria;
+        Grafica grafica;
     public:
         Gioco(int diff);
         Giocatore player;
