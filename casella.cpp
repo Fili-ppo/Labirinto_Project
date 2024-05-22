@@ -18,6 +18,23 @@ Casella::Casella(){
     //Rotazione di 90 gradi delle porte verso destra/sinistra
     porta[2].setRotation(90);
     porta[3].setRotation(90);
+    //inizializzo i bordi/angoli
+    for(int i=0; i<4; i++){
+        bordi[i].setSize({570, 215}); //se dovessero esserci problemi con collisioni inzializzarli a 215, 570 senza mettere la rotation
+        bordi[i].setFillColor(sf::Color::Red);
+        angoli[i].setSize({215, 215});
+        angoli[i].setFillColor(sf::Color::Red);
+    }
+    bordi[2].setRotation(90);
+    bordi[3].setRotation(90);
+    angoli[0].setPosition(0,0);
+    angoli[1].setPosition(785, 0);
+    angoli[2].setPosition(0, 785);
+    angoli[3].setPosition(785, 785);
+    bordi[0].setPosition(215, 0);
+    bordi[1].setPosition(215, 785);
+    bordi[2].setPosition(1000, 215);
+    bordi[3].setPosition(215, 215);
 }
 void Casella::inizializza(int d){ //controlla gli attributi della casella e a seconda di quelli decide che tipo di npc è presente in questa casella
     if(haAiutante) npc=new Aiutante();
@@ -43,4 +60,17 @@ void Casella::inizializza(int d){ //controlla gli attributi della casella e a se
 void Casella::update(){
     npc->controlloVita(); //controlla che l'npc sia vivo o no
     if(npc->vivo==false) haiVinto=true; //se l'npc non è vivo, è stato sconfitto e hai vinto in quella singola stanza
+}
+void Casella::collisioni(Personaggio *p){
+    /*while (collideLeft()) // se tocca bordi[0](su) p.sprite.setPosition(p.sprite.getPosition().x, p.sprite.getPosition().y-10 o 20 boh
+        pos.x++;
+    while (collideRight())
+        pos.x--;
+    while (collideUp())
+        pos.y++;
+    while (collideDown())
+        pos.y--;*/
+    //per gli angoli stessa cosa ma bisogna fare il check
+    //se p.getPosition().x è minore di angoli[i].getPosition().x allora....
+    //se dovessero esserci problemi con collisioni inzializzarli a 215, 570 senza mettere la rotation
 }

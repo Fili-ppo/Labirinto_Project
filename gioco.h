@@ -29,7 +29,7 @@ class Gioco{
         void disegna();
         bool partita();
         void cambiaStanza();
-        void checkCollisioni();
+        void checkInterazioni();
         void checkVittoria();
 };
 #endif

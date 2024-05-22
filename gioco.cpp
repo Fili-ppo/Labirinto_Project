@@ -126,7 +126,7 @@ bool Gioco::partita(){
         tabellone[player.getI()][player.getJ()].update();
         cambiaStanza();
         disegna();
-        checkCollisioni();
+        checkInterazioni();
         checkVittoria();
         player.checkVita();
         finestra->display();
@@ -135,11 +135,19 @@ bool Gioco::partita(){
 }
 void Gioco::disegna(){ //ok
     finestra->draw(tabellone[player.getI()][player.getJ()].sfondo2);
+    //Angoli e bordi x collisioni
+    for(int i=0; i<4; i++){
+        finestra->draw(tabellone[player.getI()][player.getJ()].angoli[i]);
+    }
     //4 porte
     if(tabellone[player.getI()][player.getJ()].su) finestra->draw(tabellone[player.getI()][player.getJ()].porta[0]);
+    else finestra->draw(tabellone[player.getI()][player.getJ()].bordi[0]);
     if(tabellone[player.getI()][player.getJ()].giu) finestra->draw(tabellone[player.getI()][player.getJ()].porta[1]);
+    else finestra->draw(tabellone[player.getI()][player.getJ()].bordi[1]);
     if(tabellone[player.getI()][player.getJ()].destra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[2]);
+    else finestra->draw(tabellone[player.getI()][player.getJ()].bordi[2]);
     if(tabellone[player.getI()][player.getJ()].sinistra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[3]);
+    else finestra->draw(tabellone[player.getI()][player.getJ()].bordi[3]);
     //Player
     if(tabellone[player.getI()][player.getJ()].haiVinto==false || (tabellone[player.getI()][player.getJ()].haCassa && tabellone[player.getI()][player.getJ()].npc->giaInteragito)){
         finestra->draw(tabellone[player.getI()][player.getJ()].npc->sprite);
@@ -173,7 +181,7 @@ void Gioco::cambiaStanza(){
         } 
     }
 }
-void Gioco::checkCollisioni(){ //ok
+void Gioco::checkInterazioni(){ //ok
     if(!tabellone[player.getI()][player.getJ()].haNemici && !tabellone[player.getI()][player.getJ()].haMiniboss && !tabellone[player.getI()][player.getJ()].haCassa){
         if(player.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds()) && tabellone[player.getI()][player.getJ()].npc->giaInteragito==false){
             finestra->draw(tabellone[player.getI()][player.getJ()].npc->boxDialogo);

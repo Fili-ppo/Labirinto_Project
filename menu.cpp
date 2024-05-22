@@ -3,16 +3,18 @@ Menu::Menu(){
     diff=0;
     finestra=new sf::RenderWindow(sf::VideoMode(1300,1000), "Menù iniziale");
     font.loadFromFile("Font\\upheavtt.ttf");
-    text[0].setString("Facile");
-    text[1].setString("Medio");
-    text[2].setString("Difficile");
+    text[0].setString("\tFacile");
+    text[1].setString("\tMedio");
+    text[2].setString(" Difficile");
     sfondoT.loadFromFile("Images\\sfondo.png");
     sfondo.setTexture(sfondoT);
     pulsante.loadFromFile("Images\\pulsante.png");
     for(int i=0; i<3; i++){
+        text[i].setFont(font);
+        text[i].setColor(Color::Black);
+        text[i].setPosition(i*433+120, 850);
+        text[i].setScale(1.2, 1.2);
         pulsanti[i].setTexture(pulsante);
-        text->setPosition(i*433+70, 820);
-        text->setScale(0.5, 0.5);
         pulsanti[i].setScale(0.6, 0.6);
         pulsanti[i].setPosition(i*433+60,800);
     }
