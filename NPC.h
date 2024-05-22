@@ -19,6 +19,6 @@ class NPC: public Personaggio{
         sf::Sprite risposta[3];
         sf::Sprite boxDialogo;
         bool giaInteragito;
-        virtual void muovi(){};
+        virtual void muovi(Personaggio *p){};
 };
 #endif

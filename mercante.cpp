@@ -3,9 +3,9 @@
 
 //}
 int Mercante::interazione(Personaggio *p){
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) && p->getgemme()>50){
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) && p->getGemme()>=50){
         giaInteragito=true;
-        p->setGemme(p->getgemme()-50);
+        p->setGemme(p->getGemme()-50);
         p->aumenta();
         return 1;     
     } 

@@ -21,9 +21,10 @@ class Giocatore:public Personaggio{
         void usaPozione();
         void muovi();
         void attacca();
-        void setGemme(int g){gemme=g;};
-        int getgemme(){return gemme;};
+        //void setGemme(int g){gemme=g;};
+        //int getGemme(){return gemme;};
         void aumenta();
         int getChiavi(){return chiavi;};
+        void checkVita(){if(vita<=0) vivo=false;};
 };
 #endif

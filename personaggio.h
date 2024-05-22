@@ -17,7 +17,7 @@ class Personaggio{
         void setVita(int v){vita=v;};
         bool vivo;
         void setGemme(int g){gemme=g;};
-        int getgemme(){return gemme;};
+        int getGemme(){return gemme;};
         virtual void aumenta(){};
 
 };

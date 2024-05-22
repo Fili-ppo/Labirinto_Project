@@ -3,6 +3,8 @@ Giocatore::Giocatore(){
     pos[0]=6; 
     pos[1]=0;
     chiavi=0;
+    vivo=true;
+    vita=100;
     texture=new sf::Texture[4];
     texture[0].loadFromFile("Images\\personaggioFronte.png");
     texture[1].loadFromFile("Images\\personaggioRetro.png");
@@ -26,22 +28,22 @@ void Giocatore::usaPozione(){
 }
 void Giocatore::muovi(){
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-            sprite.move(0, -0.2); 
+            sprite.move(0, -0.25); 
             sprite.setTexture(texture[1]);
             direzione=0;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-            sprite.move(0, 0.2);
+            sprite.move(0, 0.25);
             sprite.setTexture(texture[0]);
             direzione=1;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            sprite.move(-0.2, 0);
+            sprite.move(-0.25, 0);
             sprite.setTexture(texture[3]);
             direzione=2;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            sprite.move(0.2, 0);
+            sprite.move(0.25, 0);
             sprite.setTexture(texture[2]);
             direzione=3;
         }

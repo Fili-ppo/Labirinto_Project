@@ -8,6 +8,6 @@
 int main(void){
     Menu m;
     Gioco g;
-    g.partita();
+    if(g.partita()) cout<<"Ciao";
     return 0;
 } 

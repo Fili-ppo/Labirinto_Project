@@ -22,7 +22,7 @@ class Gioco{
         Gioco();
         void attacca();
         void disegna();
-        void partita();
+        bool partita();
         void cambiaStanza();
         void checkCollisioni();
         void checkVittoria();

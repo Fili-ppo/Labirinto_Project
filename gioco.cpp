@@ -99,17 +99,19 @@ void Gioco::attacca(){ //ok
             if(player.spada.sprite.getGlobalBounds().intersects(tabellone[player.getI()][player.getJ()].npc->sprite.getGlobalBounds()) && player.staAttaccando){
                 player.spada.faiDanno(tabellone[player.getI()][player.getJ()].npc);
                 tabellone[player.getI()][player.getJ()].npc->invincibile.restart();
+                player.setGemme(player.getGemme()+5);
             }
         }
     }
 }
-void Gioco::partita(){
-    while(finestra->isOpen() && vittoria==false){ //quando la finestra è aperta il gioco continua
+bool Gioco::partita(){
+    while(finestra->isOpen() && vittoria==false && player.vivo==true){ //quando la finestra è aperta il gioco continua
         sf::Event azione;
         while(finestra->pollEvent(azione)){
             if(azione.type==sf::Event::Closed) finestra->close(); //se premo la x, fermo il programma e chiudo la finestra
         }
         player.muovi();
+        tabellone[player.getI()][player.getJ()].npc->muovi(&player);
         player.attacca();
         attacca();
         tabellone[player.getI()][player.getJ()].update();
@@ -117,8 +119,10 @@ void Gioco::partita(){
         disegna();
         checkCollisioni();
         checkVittoria();
+        player.checkVita();
         finestra->display();
     }
+    return vittoria;
 }
 void Gioco::disegna(){ //ok
     finestra->draw(tabellone[player.getI()][player.getJ()].sfondo2);
@@ -177,6 +181,7 @@ void Gioco::checkCollisioni(){ //ok
             finestra->draw(tabellone[player.getI()][player.getJ()].npc->dialogo[4]);
         }
     }
+    else tabellone[player.getI()][player.getJ()].npc->interazione(&player);
 }
 void Gioco::checkVittoria(){
     if(player.getI()==0 && player.getJ()==6){
