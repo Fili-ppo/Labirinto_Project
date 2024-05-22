@@ -4,21 +4,22 @@
 #include "personaggio.h"
 #include <sstream>
 using namespace std;
+using namespace sf;
 class NPC: public Personaggio{
     protected:
-        sf::Font font;
-        sf::Texture textureRisposta[3];
-        sf::Texture textureDialogo;
+        Font font;
+        Texture textureRisposta[3];
+        Texture textureDialogo;
     public:
         NPC();
-        void controlloVita();
-        virtual int interazione(Personaggio *p){return 0;};
-        sf::Text dialogo[6];
-        stringstream dialoghi[6]; 
-        void setDialoghi(string s, int n);
-        sf::Sprite risposta[3];
-        sf::Sprite boxDialogo;
         bool giaInteragito;
+        Text dialogo[6];
+        stringstream dialoghi[6]; 
+        Sprite risposta[3];
+        Sprite boxDialogo;
+        void controlloVita();
+        void setDialoghi(string s, int n);
+        virtual int interazione(Personaggio *p){return 0;};
         virtual void muovi(Personaggio *p){};
 };
 #endif

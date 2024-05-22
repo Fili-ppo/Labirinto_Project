@@ -8,24 +8,26 @@
 #include "giocatore.h"
 #include <SFML/Graphics.hpp>
 #include <fstream>
+using namespace std;
+using namespace sf;
 class Gioco{
     private:
-        sf::RenderWindow *finestra;
+        RenderWindow *finestra;
         Casella tabellone[7][7];
-        std::ifstream schema;
-        std::ifstream sfondi;
-        std::ifstream dialoghi;
-        sf::Clock timer;
+        ifstream schema;
+        ifstream sfondi;
+        ifstream dialoghi;
+        Clock timer;
+        RectangleShape portaFinale;
         bool vittoria;
-        sf::RectangleShape portaFinale;
     public:
         Gioco();
+        Giocatore player;
         void attacca();
         void disegna();
         bool partita();
         void cambiaStanza();
         void checkCollisioni();
         void checkVittoria();
-        Giocatore player;
 };
 #endif

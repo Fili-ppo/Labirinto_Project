@@ -8,10 +8,14 @@
 #include "quiz.h"
 #include "nemico.h"
 #include "mercante.h"
+using namespace std;
+using namespace sf;
 class Casella{
     private:
         
     public:
+        Casella();
+        NPC *npc;
         bool su;
         bool giu;
         bool destra;
@@ -25,13 +29,11 @@ class Casella{
         bool haCasino;
         bool haMiniboss;
         bool haiVinto;
-        Casella();
-        NPC *npc;
-        sf::Texture textCassa;
-        sf::Sprite cassa;
-        sf::RectangleShape porta[4]; //0 su, 1 giu, 2 destra, 3 sinistra
-        sf::Texture sfondo;
-        sf::Sprite sfondo2;
+        Texture textCassa;
+        Sprite cassa;
+        RectangleShape porta[4]; //0 su, 1 giu, 2 destra, 3 sinistra
+        Texture sfondo;
+        Sprite sfondo2;
         void inizializza();
         void update();
         

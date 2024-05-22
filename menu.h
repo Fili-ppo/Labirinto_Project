@@ -4,9 +4,12 @@
 #include "personaggio.h"
 #include "equipaggiamento.h"
 #include <SFML/Graphics.hpp>
+using namespace std;
+using namespace sf;
 class Menu{
     private:
-        sf::RenderWindow *finestra;
+        RenderWindow *finestra;
+        
     public:
         Menu();
         void update();
