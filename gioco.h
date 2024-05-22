@@ -21,7 +21,7 @@ class Gioco{
         RectangleShape portaFinale;
         bool vittoria;
     public:
-        Gioco();
+        Gioco(int diff);
         Giocatore player;
         void attacca();
         void disegna();

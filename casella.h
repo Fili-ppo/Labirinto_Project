@@ -2,7 +2,6 @@
 #define CASELLA_H
 #include "NPC.h"
 #include "aiutante.h"
-#include "casino.h"
 #include "cassa.h"
 #include "medico.h"
 #include "quiz.h"
@@ -16,8 +15,8 @@ class Casella{
     public:
         Casella();
         NPC *npc;
-        bool su;
-        bool giu;
+        bool su; //attributi booleani per generare in automatico le caselle
+        bool giu;//rappresentano le posizioni, gli eventuali NPC e l'eventuale vittoria contro un nemico
         bool destra;
         bool sinistra;
         bool haMercato;
@@ -26,15 +25,14 @@ class Casella{
         bool haNemici;
         bool haQuiz;
         bool haAiutante;
-        bool haCasino;
         bool haMiniboss;
         bool haiVinto;
-        Texture textCassa;
-        Sprite cassa;
-        RectangleShape porta[4]; //0 su, 1 giu, 2 destra, 3 sinistra
-        Texture sfondo;
-        Sprite sfondo2;
-        void inizializza();
+        //Texture textCassa;
+        //Sprite cassa;
+        RectangleShape porta[4]; //sono le 4 porte per uscire dalle stanze, a seconda degli attributi di direzione vengono mostrate o meno
+        Texture sfondo; //sfondo della stanza
+        Sprite sfondo2; //sprite che viene rappresentato per mostrare lo sfondo della stanza
+        void inizializza(int d);
         void update();
         
 };

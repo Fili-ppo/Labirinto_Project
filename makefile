@@ -5,7 +5,6 @@ compile:
 	g++ -Isrc/include -c personaggio.cpp
 	g++ -Isrc/include -c NPC.cpp
 	g++ -Isrc/include -c aiutante.cpp
-	g++ -Isrc/include -c casino.cpp
 	g++ -Isrc/include -c medico.cpp
 	g++ -Isrc/include -c quiz.cpp
 	g++ -Isrc/include -c nemico.cpp

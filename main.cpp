@@ -6,8 +6,12 @@
 #include "arma.h"
 #include "gioco.h"
 int main(void){
-    Menu m;
-    Gioco g;
-    if(g.partita()) cout<<"Ciao";
+    Menu menu;
+    Gioco *gioco;
+    menu.checkSalvataggio("Documentazione\\salvataggio.txt");
+    //int diff=m.selezionaDiff();
+    menu.display();
+    gioco=new Gioco(menu.getDiff());
+    if(gioco->partita()) cout<<"Ciao";
     return 0;
 } 

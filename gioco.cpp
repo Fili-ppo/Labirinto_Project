@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <sstream>
-Gioco::Gioco(){
+Gioco::Gioco(int diff){
     vittoria=false;
     portaFinale.setFillColor(sf::Color::Blue);
     portaFinale.setSize({6.f, 60.f});
@@ -11,10 +11,23 @@ Gioco::Gioco(){
     portaFinale.setRotation(315);
     portaFinale.setPosition(600, 150);
     //Creo la finestra e le assegno dimensioni e nome
-    finestra=new sf::RenderWindow(sf::VideoMode(1000, 1000), "Labirinto");
+    finestra=new sf::RenderWindow(sf::VideoMode(1300, 1000), "Labirinto");
     //Assegno la struttura al labirinto
     //da mettere switch case per i documenti da considerare
-    schema.open("Documentazione\\labirinto.txt");
+    switch(diff){
+        case 1:
+            schema.open("Documentazione\\labirintoEasy.txt");
+            break;
+        case 2:
+            schema.open("Documentazione\\labirintoMedium.txt");
+            break;
+        case 3:
+            schema.open("Documentazione\\labirintoHard.txt");
+            break;
+        /*case 1:
+            schema.open("Documentazione\\labirintoHard.txt");
+            break;*/
+    }
     for(int i=0; i<7; i++){
         for(int j=0; j<7; j++){
             schema>>tabellone[i][j].su;
@@ -27,10 +40,9 @@ Gioco::Gioco(){
             schema>>tabellone[i][j].haNemici;
             schema>>tabellone[i][j].haQuiz;
             schema>>tabellone[i][j].haAiutante;
-            schema>>tabellone[i][j].haCasino;
             schema>>tabellone[i][j].haMiniboss;
             //dare in input un valore che permetta di cambiare la vita dei nemicia seconda della difficoltà
-            tabellone[i][j].inizializza();
+            tabellone[i][j].inizializza(diff);
         }
     }
     schema.close();
@@ -132,7 +144,7 @@ void Gioco::disegna(){ //ok
     if(tabellone[player.getI()][player.getJ()].destra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[2]);
     if(tabellone[player.getI()][player.getJ()].sinistra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[3]);
     //Player
-    if(tabellone[player.getI()][player.getJ()].haiVinto==false){
+    if(tabellone[player.getI()][player.getJ()].haiVinto==false || (tabellone[player.getI()][player.getJ()].haCassa && tabellone[player.getI()][player.getJ()].npc->giaInteragito)){
         finestra->draw(tabellone[player.getI()][player.getJ()].npc->sprite);
     }
     if(player.staAttaccando) finestra->draw(player.spada.sprite);

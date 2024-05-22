@@ -12,10 +12,10 @@ NPC::NPC(){
     boxDialogo.setTexture(textureDialogo);
     boxDialogo.setScale(0.5, 0.5);
     boxDialogo.setPosition(134, 730);
-    textureRisposta[0].loadFromFile("Images\\risposta1.png");
+    textureRisposta[0].loadFromFile("Images\\pulsante1.png");
     risposta[0].setTexture(textureRisposta[0]);
-    textureRisposta[1].loadFromFile("Images\\risposta2.png");
-    textureRisposta[2].loadFromFile("Images\\risposta.png");
+    textureRisposta[1].loadFromFile("Images\\pulsante2.png");
+    textureRisposta[2].loadFromFile("Images\\pulsante.png");
     risposta[2].setTexture(textureRisposta[2]);
     risposta[1].setTexture(textureRisposta[1]);
     risposta[0].setScale(0.3, 0.3);
