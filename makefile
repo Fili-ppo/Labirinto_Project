@@ -1,7 +1,6 @@
 all: compile link
 
 compile:
-	g++ -Isrc/include -c equipaggiamento.cpp
 	g++ -Isrc/include -c personaggio.cpp
 	g++ -Isrc/include -c NPC.cpp
 	g++ -Isrc/include -c aiutante.cpp
@@ -18,4 +17,4 @@ compile:
 	g++ -Isrc/include -c gioco.cpp
 	g++ -Isrc/include -c main.cpp
 link: 
-	g++ main.o equipaggiamento.o personaggio.o npc.o aiutante.o casino.o medico.o cassa.o quiz.o nemico.o mercante.o casella.o menu.o arma.o giocatore.o grafica.o gioco.o -o main -Lsrc/lib -lsfml-graphics -lsfml-window -lsfml-system
+	g++ main.o personaggio.o npc.o aiutante.o medico.o cassa.o quiz.o nemico.o mercante.o casella.o menu.o arma.o giocatore.o grafica.o gioco.o -o main -Lsrc/lib -lsfml-graphics -lsfml-window -lsfml-system

@@ -23,9 +23,6 @@ void Giocatore::cambiaStanza(int i, int j){
     pos[0]+=i;
     pos[1]+=j;
 }
-void Giocatore::usaPozione(){
-
-}
 void Giocatore::muovi(){
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
             sprite.move(0, -0.25); 

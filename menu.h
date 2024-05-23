@@ -1,8 +1,5 @@
 #ifndef MENU_H
 #define MENU_H
-#include "casella.h"
-#include "personaggio.h"
-#include "equipaggiamento.h"
 #include <SFML/Graphics.hpp>
 #include <fstream>
 using namespace std;

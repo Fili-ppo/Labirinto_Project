@@ -1,13 +1,10 @@
 #ifndef PERSONAGGIO_H
 #define PERSONAGGIO_H
-#include <string>
-#include "equipaggiamento.h"
 #include <SFML/Graphics.hpp>
 using namespace std;
 using namespace sf;
 class Personaggio{
     protected:
-        string nome;
         int vita;
         int gemme;
     public:
