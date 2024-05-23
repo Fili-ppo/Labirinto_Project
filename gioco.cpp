@@ -127,6 +127,7 @@ bool Gioco::partita(){
         cambiaStanza();
         disegna();
         checkInterazioni();
+        tabellone[player.getI()][player.getJ()].collisioni(&player);
         checkVittoria();
         player.checkVita();
         finestra->display();
