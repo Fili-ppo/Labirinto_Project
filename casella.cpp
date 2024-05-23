@@ -4,17 +4,17 @@ Casella::Casella(){
     for(int i=0; i<4; i++){ //inizializza tutte le porte con le stesse dimensioni
         //porta[i].setFillColor(sf::Color::Red);
         porta[i].setSize({10.f, 1.f});
-        porta[i].setScale(20, 2);
+        porta[i].setScale(23, 2);
     }
     //colore temporaneo
     for(int i=0; i<4; i++){
         porta[i].setFillColor(sf::Color::Transparent);
     }
     //Posizioni delle porte
-    porta[0].setPosition(395.f, 10.f);
-    porta[1].setPosition(395.f, 990.f);
-    porta[2].setPosition(990.f, 395.f);
-    porta[3].setPosition(10.f, 395.f);
+    porta[0].setPosition(380.f, 10.f);
+    porta[1].setPosition(380.f, 990.f);
+    porta[2].setPosition(990.f, 380.f);
+    porta[3].setPosition(10.f, 380.f);
     //Rotazione di 90 gradi delle porte verso destra/sinistra
     porta[2].setRotation(90);
     porta[3].setRotation(90);

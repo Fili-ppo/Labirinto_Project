@@ -124,6 +124,7 @@ bool Gioco::partita(){
         player.attacca();
         attacca();
         tabellone[player.getI()][player.getJ()].update();
+        grafica.update(&player);
         cambiaStanza();
         disegna();
         checkInterazioni();
@@ -149,14 +150,22 @@ void Gioco::disegna(){ //ok
     else finestra->draw(tabellone[player.getI()][player.getJ()].bordi[2]);
     if(tabellone[player.getI()][player.getJ()].sinistra) finestra->draw(tabellone[player.getI()][player.getJ()].porta[3]);
     else finestra->draw(tabellone[player.getI()][player.getJ()].bordi[3]);
-    //Player
+    //Player e NPC
     if(tabellone[player.getI()][player.getJ()].haiVinto==false || (tabellone[player.getI()][player.getJ()].haCassa && tabellone[player.getI()][player.getJ()].npc->giaInteragito)){
         finestra->draw(tabellone[player.getI()][player.getJ()].npc->sprite);
     }
     if(player.staAttaccando) finestra->draw(player.spada.sprite);
     if(player.getI()==0 && player.getJ()==6) finestra->draw(portaFinale);
     finestra->draw(player.sprite);
-    
+    //GUI
+    finestra->draw(grafica.gemme); //da modificare perché scrive sopra quelle vecchie
+    finestra->draw(grafica.immGemme);
+    for(int i=0; i<10; i++){
+        finestra->draw(grafica.barraVita[i]);
+    }
+    for(int i=0; i<4; i++){
+        finestra->draw(grafica.chiavi[i]);
+    }
 }
 void Gioco::cambiaStanza(){
     if(timer.getElapsedTime().asSeconds()>2){
