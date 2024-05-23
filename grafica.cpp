@@ -40,4 +40,7 @@ void Grafica::update(Giocatore *g){
     for(int i=9; i>(g->getVita()/10); i--){
         barraVita[i].setTexture(vitaPersa);
     }
+    for(int i=0; i<(g->getVita()/10); i++){
+        barraVita[i].setTexture(vita);
+    }
 }

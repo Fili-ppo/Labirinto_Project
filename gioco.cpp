@@ -126,11 +126,12 @@ bool Gioco::partita(){
         tabellone[player.getI()][player.getJ()].update();
         grafica.update(&player);
         cambiaStanza();
-        disegna();
-        checkInterazioni();
         tabellone[player.getI()][player.getJ()].collisioni(&player);
         checkVittoria();
         player.checkVita();
+        finestra->clear();
+        disegna();
+        checkInterazioni();
         finestra->display();
     }
     return vittoria;

@@ -9,7 +9,7 @@ void Nemico::muovi(Personaggio *p){
     sprite.move(x, y);
 }
 int Nemico::interazione(Personaggio *p){
-    if(sprite.getGlobalBounds().intersects(p->sprite.getGlobalBounds()) && p->invincibile.getElapsedTime().asSeconds()>3){
+    if(sprite.getGlobalBounds().intersects(p->sprite.getGlobalBounds()) && p->invincibile.getElapsedTime().asSeconds()>3 && vivo==true){
         p->setVita(p->getVita()-danno);
         p->invincibile.restart();
     }

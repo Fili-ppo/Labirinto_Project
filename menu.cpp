@@ -12,11 +12,11 @@ Menu::Menu(){
     for(int i=0; i<3; i++){
         text[i].setFont(font);
         text[i].setColor(Color::Black);
-        text[i].setPosition(i*433+120, 850);
+        text[i].setPosition(i*433+120, 650);
         text[i].setScale(1.2, 1.2);
         pulsanti[i].setTexture(pulsante);
         pulsanti[i].setScale(0.6, 0.6);
-        pulsanti[i].setPosition(i*433+60,800);
+        pulsanti[i].setPosition(i*433+60,600);
     }
     cursore.setFillColor(sf::Color::Transparent);
     cursore.setSize({10.f, 10.f});

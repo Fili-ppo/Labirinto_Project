@@ -13,10 +13,9 @@ compile:
 	g++ -Isrc/include -c casella.cpp
 	g++ -Isrc/include -c menu.cpp
 	g++ -Isrc/include -c arma.cpp
-	g++ -Isrc/include -c pozione.cpp
 	g++ -Isrc/include -c giocatore.cpp
 	g++ -Isrc/include -c grafica.cpp
 	g++ -Isrc/include -c gioco.cpp
 	g++ -Isrc/include -c main.cpp
 link: 
-	g++ main.o equipaggiamento.o personaggio.o npc.o aiutante.o casino.o medico.o cassa.o quiz.o nemico.o mercante.o casella.o menu.o arma.o pozione.o giocatore.o grafica.o gioco.o -o main -Lsrc/lib -lsfml-graphics -lsfml-window -lsfml-system
+	g++ main.o equipaggiamento.o personaggio.o npc.o aiutante.o casino.o medico.o cassa.o quiz.o nemico.o mercante.o casella.o menu.o arma.o giocatore.o grafica.o gioco.o -o main -Lsrc/lib -lsfml-graphics -lsfml-window -lsfml-system

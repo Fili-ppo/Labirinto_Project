@@ -6,7 +6,7 @@ Grande! Prendi questa chiave!
 Peccato amico, hai sbagliato... 
 
 Ciao boss, entra nel mio bellissimo negozio e compra qualcosa, dai!
-Questa chiave costa 200 gemme, la vuoi?
+Questa chiave costa 100 gemme, la vuoi?
 Si'
 No
 Grazie e buona Fortuna!
