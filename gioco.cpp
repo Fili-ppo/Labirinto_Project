@@ -119,18 +119,18 @@ bool Gioco::partita(){
         while(finestra->pollEvent(azione)){
             if(azione.type==sf::Event::Closed) finestra->close(); //se premo la x, fermo il programma e chiudo la finestra
         }
-        player.muovi();
-        tabellone[player.getI()][player.getJ()].npc->muovi(&player);
+        player.muovi(); //muove il player in base all'input
+        tabellone[player.getI()][player.getJ()].npc->muovi(&player); //muove il nemico
         player.attacca();
         attacca();
-        tabellone[player.getI()][player.getJ()].update();
-        grafica.update(&player);
-        cambiaStanza();
-        tabellone[player.getI()][player.getJ()].collisioni(&player);
-        checkVittoria();
-        player.checkVita();
-        finestra->clear();
-        disegna();
+        tabellone[player.getI()][player.getJ()].update(); //controlla se il nemico è vivo
+        grafica.update(&player); //aggiorna la grafica della gui
+        cambiaStanza(); //muove il giocatore nella matrice
+        tabellone[player.getI()][player.getJ()].collisioni(&player); //controlla le collisioni coi muri
+        checkVittoria(); 
+        player.checkVita(); 
+        finestra->clear(); //pulisce dalle cose disegnate prima
+        disegna(); 
         checkInterazioni();
         finestra->display();
     }
